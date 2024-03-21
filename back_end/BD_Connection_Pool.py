@@ -5,6 +5,6 @@ import pymongo
 def connection_pool():
     client = pymongo.MongoClient("mongodb://localhost:27017")
     # accedo alla collezione presente all'interno del db Car_Retail
-    col = client["CarPrices"]["CarPrices"]
+    col = client["CarPrice"]["CarPrice"]
     # restituisco la collezione
     return col

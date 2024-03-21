@@ -43,10 +43,10 @@
     <link rel="stylesheet" href="assets/css/bootsnav.css">
 
     <!--style.css-->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <!--responsive.css-->
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -106,12 +106,84 @@
 
     <div class="container">
         <div class="welcome-hero-txt">
+            <section id="dataset"></section>
+            <div class="container">
+                <div class="table-scroll">
+                    <table id="data-table" class="table table-striped">
+                        <br>
+                        <caption>Dati sull'inquinamento dell'aria</caption>
+                        <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Valutazione rischio</th>
+                            <th onclick="sortTable(1)">Marca e modello</th>
+                            <th onclick="sortTable(2)">Tipo di carburante </th>
+                            <th onclick="sortTable(3)">Numero porte</th>
+                            <th onclick="sortTable(4)">Carrozzeria</th>
+                            <th onclick="sortTable(5)">Ruote motrici</th>
+                            <th onclick="sortTable(6)">Zona motore</th>
+                            <th onclick="sortTable(7)">Interasse</th>
+                            <th onclick="sortTable(8)">Lunghezza veicolo</th>
+                            <th onclick="sortTable(9)">Larghezza veicolo</th>
+                            <th onclick="sortTable(10)">Altezza veicolo</th>
+                            <th onclick="sortTable(11)">Peso veicolo</th>
+                            <th onclick="sortTable(12)">Tipo di motore</th>
+                            <th onclick="sortTable(13)">Numero di cilindri</th>
+                            <th onclick="sortTable(14)">Grandezza del motore</th>
+                            <th onclick="sortTable(15)">Sistema di alimentazione</th>
+                            <th onclick="sortTable(16)">Diametro dei cilindri</th>
+                            <th onclick="sortTable(17)">Volume del motore</th>
+                            <th onclick="sortTable(18)">Rapporto di compressione</th>
+                            <th onclick="sortTable(19)">giri/minuto di picco</th>
+                            <th onclick="sortTable(20)">Città (MPG)</th>
+                            <th onclick="sortTable(21)">Autostrada (MPG)</th>
+                            <th onclick="sortTable(22)">Prezzo</th>
 
+                        </tr>
+                        </thead>
+                        <tbody id="data-body">
+
+                        {% for i in range(10) %}
+                        {% set row = list_carprice[i] %}
+                        <tr>
+                            <td>{{ row.car_symboling}}</td>
+                            <td>{{ row.car_name}}</td>
+                            <td>{{ row.fuel_type }}</td>
+                            <td>{{ row.car_aspiration }}</td>
+                            <td>{{ row.door_number }}</td>
+                            <td>{{ row.car_body }}</td>
+                            <td>{{ row.drive_wheel }}</td>
+                            <td>{{ row.engine_location }}</td>
+                            <td>{{ row.wheel_base }}</td>
+                            <td>{{ row.car_length }}</td>
+                            <td>{{ row.car_width }}</td>
+                            <td>{{ row.car_height }}</td>
+                            <td>{{ row.curb_weight }}</td>
+                            <td>{{ row.engine_type }}</td>
+                            <td>{{ row.cylinder_number }}</td>
+                            <td>{{ row.engine_size }}</td>
+                            <td>{{ row.fuel_system }}</td>
+                            <td>{{ row.engine_type }}</td>
+                            <td>{{ row.bore_ratio }}</td>
+                            <td>{{ row.car_stroke }}</td>
+                            <td>{{ row.engine_type }}</td>
+                            <td>{{ row.compression_ratio }}</td>
+                            <td>{{ row.horse_power }}</td>
+                            <td>{{ row.peak_rpm }}</td>
+                            <td>{{ row.city_mpg }}</td>
+                            <td>{{ row.highway_mpg }}</td>
+                            <td>{{ row.price_of_car }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-
 </section><!--/.welcome-hero-->
 <!--welcome-hero end -->
+
+
 
 <!-- Sezione CRUD Operations per il file CarPrice.csv -->
 <section id="crud-operations" class="crud-operations">
@@ -167,16 +239,16 @@
                 <h2>Risultati</h2>
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Marca</th>
-                            <th>Modello</th>
-                            <th>Anno</th>
-                            <th>Prezzo</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Marca</th>
+                        <th>Modello</th>
+                        <th>Anno</th>
+                        <th>Prezzo</th>
+                    </tr>
                     </thead>
                     <tbody id="resultsTable">
-                        <!-- I risultati delle operazioni CRUD saranno visualizzati qui -->
+                    <!-- I risultati delle operazioni CRUD saranno visualizzati qui -->
                     </tbody>
                 </table>
             </div>
