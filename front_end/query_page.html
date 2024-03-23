@@ -115,8 +115,8 @@
                         <thead>
                         <tr>
                             <th onclick="sortTable(0)">ID</th>
-                            <th onclick="sortTable(1)">Valutazione rischio</th>
                             <th onclick="sortTable(2)">Marca e modello</th>
+                            <th onclick="sortTable(1)">Valutazione rischio</th>
                             <th onclick="sortTable(3)">Tipo di carburante</th>
                             <th onclick="sortTable(4)">Numero porte</th>
                             <th onclick="sortTable(5)">Carrozzeria</th>
@@ -147,8 +147,8 @@
                         {% set row = list_carprice[i] %}
                         <tr>
                             <td>{{ row.id_car}}</td>
-                            <td>{{ row.car_symboling}}</td>
                             <td>{{ row.car_name}}</td>
+                            <td>{{ row.car_symboling}}</td>
                             <td>{{ row.fuel_type }}</td>
                             <td>{{ row.car_aspiration }}</td>
                             <td>{{ row.door_number }}</td>
