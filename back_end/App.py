@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import Queries as queries
+import Queries as Query
 import CarPrice
 
 app = Flask(__name__, template_folder="front_end", static_folder="front_end/assets")
@@ -18,25 +18,27 @@ def change_result(value):
 
 
 def full_table():
-    lista = queries.car_alphabetical_sorting()
+    lista = Query.car_alphabetical_sorting()
     car_price = []
     for i in lista:
         car_price.append((CarPrice.CarPrice(i)))
     return car_price
 
 
-@app.route("/index")
-def homepage():
-    return render_template("index.html")
-
-
-@app.route("/")
+@app.route('/')
 def main():
-    return render_template("inderx.html")
+    return render_template('index.html')
 
 
-@app.route("/query_page")
+@app.route('/index')
+def home():
+    return render_template('index.html')
+
+
+@app.route('/query_page')
 def query_page():
-    return render_template("query_page.html")
+    return render_template("query_page.html", list_air=change_result(full_table()))
 
-#Ricerca
+
+if __name__ == "__main__":
+    app.run(debug=True)

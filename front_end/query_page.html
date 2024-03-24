@@ -25,6 +25,7 @@
 
     <!--linear icon css-->
     <link rel="stylesheet" href="assets/css/linearicons.css">
+    <link rel="stylesheet" href="assets/css/query.css">
 
     <!--flaticon.css-->
     <link rel="stylesheet" href="assets/css/flaticon.css">
@@ -59,176 +60,127 @@
 </head>
 
 <body>
-
 <!--welcome-hero start -->
-<section id="query_page"
-         style="background-image: url('front_end/assets/images/welcome-hero/query_img.jpg'); background-repeat: no-repeat; width:auto; height: auto;">
-
-    <!-- top-area Start -->
-    <div class="top-area">
-        <div class="header-area">
-            <!-- Start Navigation -->
-            <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy" data-minus-value-desktop="70"
-                 data-minus-value-mobile="55" data-speed="1000">
-
-                <div class="container">
-
-                    <!-- Start Header Navigation -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <a class="navbar-brand" href="index.html">Car•Prices<span></span></a>
-
-                    </div><!--/.navbar-header-->
-                    <!-- End Header Navigation -->
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-                        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li class=" scroll active"><a href="index.html">home</a></li>
-                            <li class="scroll"><a href="#">create</a></li>
-                            <li class="scroll"><a href="#">read</a></li>
-                            <li class="scroll"><a href="#">update</a></li>
-                            <li class="scroll"><a href="#">delete</a></li>
-                            <li class="scroll"><a href="#brand">brands</a></li>
-                            <li class="scroll"><a href="#contact">contact</a></li>
-                        </ul><!--/.nav -->
-                    </div><!-- /.navbar-collapse -->
-                </div><!--/.container-->
-            </nav><!--/nav-->
-            <!-- End Navigation -->
-        </div><!--/.header-area-->
-        <div class="clearfix"></div>
-
-    </div><!-- /.top-area-->
-    <!-- top-area End -->
-
-    <div class="container">
-        <div class="welcome-hero-txt">
-            <section id="dataset"></section>
+<!-- top-area Start -->
+<div class="top-area">
+    <div class="header-area">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy" data-minus-value-desktop="70"
+             data-minus-value-mobile="55" data-speed="1000">
             <div class="container">
-                <div class="table-scroll">
-                    <table id="data-table" class="table table-striped">
-                        <br>
-                        <caption>Dati sull'inquinamento dell'aria</caption>
-                        <thead>
-                        <tr>
-                            <th onclick="sortTable(0)">ID</th>
-                            <th onclick="sortTable(2)">Marca e modello</th>
-                            <th onclick="sortTable(1)">Valutazione rischio</th>
-                            <th onclick="sortTable(3)">Tipo di carburante</th>
-                            <th onclick="sortTable(4)">Numero porte</th>
-                            <th onclick="sortTable(5)">Carrozzeria</th>
-                            <th onclick="sortTable(6)">Ruote motrici</th>
-                            <th onclick="sortTable(7)">Zona motore</th>
-                            <th onclick="sortTable(8)">Interasse</th>
-                            <th onclick="sortTable(9)">Lunghezza veicolo</th>
-                            <th onclick="sortTable(10)">Larghezza veicolo</th>
-                            <th onclick="sortTable(11)">Altezza veicolo</th>
-                            <th onclick="sortTable(12)">Peso veicolo</th>
-                            <th onclick="sortTable(13)">Tipo di motore</th>
-                            <th onclick="sortTable(14)">Numero di cilindri</th>
-                            <th onclick="sortTable(15)">Grandezza del motore</th>
-                            <th onclick="sortTable(16)">Sistema di alimentazione</th>
-                            <th onclick="sortTable(17)">Diametro dei cilindri</th>
-                            <th onclick="sortTable(18)">Volume del motore</th>
-                            <th onclick="sortTable(19)">Rapporto di compressione</th>
-                            <th onclick="sortTable(20)">giri/minuto di picco</th>
-                            <th onclick="sortTable(21)">Città (MPG)</th>
-                            <th onclick="sortTable(22)">Autostrada (MPG)</th>
-                            <th onclick="sortTable(23)">Prezzo</th>
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Car•Prices<span></span></a>
 
-                        </tr>
-                        </thead>
-                        <tbody id="data-body">
+                </div><!--/.navbar-header-->
+                <!-- End Header Navigation -->
 
-                        {% for i in range(10) %}
-                        {% set row = list_carprice[i] %}
-                        <tr>
-                            <td>{{ row.id_car}}</td>
-                            <td>{{ row.car_name}}</td>
-                            <td>{{ row.car_symboling}}</td>
-                            <td>{{ row.fuel_type }}</td>
-                            <td>{{ row.car_aspiration }}</td>
-                            <td>{{ row.door_number }}</td>
-                            <td>{{ row.car_body }}</td>
-                            <td>{{ row.drive_wheel }}</td>
-                            <td>{{ row.engine_location }}</td>
-                            <td>{{ row.wheel_base }}</td>
-                            <td>{{ row.car_length }}</td>
-                            <td>{{ row.car_width }}</td>
-                            <td>{{ row.car_height }}</td>
-                            <td>{{ row.curb_weight }}</td>
-                            <td>{{ row.engine_type }}</td>
-                            <td>{{ row.cylinder_number }}</td>
-                            <td>{{ row.engine_size }}</td>
-                            <td>{{ row.fuel_system }}</td>
-                            <td>{{ row.engine_type }}</td>
-                            <td>{{ row.bore_ratio }}</td>
-                            <td>{{ row.car_stroke }}</td>
-                            <td>{{ row.engine_type }}</td>
-                            <td>{{ row.compression_ratio }}</td>
-                            <td>{{ row.horse_power }}</td>
-                            <td>{{ row.peak_rpm }}</td>
-                            <td>{{ row.city_mpg }}</td>
-                            <td>{{ row.highway_mpg }}</td>
-                            <td>{{ row.price_of_car }}</td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><!--/.welcome-hero-->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="scroll"><a href="index.html">home</a></li>
+                        <li class="scroll"><a href="#">create</a></li>
+                        <li class="scroll"><a href="#">read</a></li>
+                        <li class="scroll"><a href="#">update</a></li>
+                        <li class="scroll"><a href="#">delete</a></li>
+                        <li class="scroll"><a href="#brand">brands</a></li>
+                        <li class="scroll"><a href="#contact">contact</a></li>
+                    </ul><!--/.nav -->
+                </div><!-- /.navbar-collapse -->
+            </div><!--/.container-->
+        </nav><!--/nav-->
+        <!-- End Navigation -->
+    </div><!--/.header-area-->
+</div><!-- /.top-area-->
 <!--welcome-hero end -->
+<div class="image-query">
+    <img src="/front_end/assets/images/welcome-hero/query_img.jpg"/>
+</div>
+<br>
+<div class="section-header">
+    <h2>Dati Veicoli</h2>
+</div><!--/.section-header-->
+<div class="data-list">
+    <div class="container">
+        <div class="table-scroll">
+            <table id="data-table" class="table table-striped">
+                <br>
+                <thead>
+                <tr>
+                    <th onclick="sortTable(0)">ID</th>
+                    <th onclick="sortTable(1)">Valutazione rischio</th>
+                    <th onclick="sortTable(2)">Marca e modello</th>
+                    <th onclick="sortTable(3)">Tipo di carburante</th>
+                    <th onclick="sortTable(4)">Aspirazione</th>
+                    <th onclick="sortTable(5)">Numero porte</th>
+                    <th onclick="sortTable(6)">Carrozzeria</th>
+                    <th onclick="sortTable(7)">Ruote motrici</th>
+                    <th onclick="sortTable(8)">Zona motore</th>
+                    <th onclick="sortTable(9)">Interasse</th>
+                    <th onclick="sortTable(10)">Lunghezza veicolo</th>
+                    <th onclick="sortTable(11)">Larghezza veicolo</th>
+                    <th onclick="sortTable(12)">Altezza veicolo</th>
+                    <th onclick="sortTable(13)">Peso veicolo</th>
+                    <th onclick="sortTable(14)">Tipo di motore</th>
+                    <th onclick="sortTable(15)">Numero di cilindri</th>
+                    <th onclick="sortTable(16)">Grandezza del motore</th>
+                    <th onclick="sortTable(17)">Sistema di alimentazione</th>
+                    <th onclick="sortTable(18)">Diametro dei cilindri</th>
+                    <th onclick="sortTable(19)">Volume del motore</th>
+                    <th onclick="sortTable(20)">Rapporto di compressione</th>
+                    <th onclick="sortTable(21)">Cavalli (HP)</th>
+                    <th onclick="sortTable(22)">giri/minuto di picco</th>
+                    <th onclick="sortTable(23)">Città (MPG)</th>
+                    <th onclick="sortTable(24)">Autostrada (MPG)</th>
+                    <th onclick="sortTable(25)">Prezzo</th>
 
+                </tr>
+                </thead>
+                <tbody id="data-body">
 
-<!-- Sezione CRUD Operations per il file CarPrice.csv -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="model-search-content">
-                <div class="row">
-                    <div class="col-md-offset-1 col-md-2 col-sm-12">
-                        <div class="single-model-search">
-                             <div class="col-md-4 col-sm-6">
-
-                            <h2>select year</h2>
-                            <div class="model-select-icon">
-                                <select class="form-control">
-
-                                    <option value="default">year</option><!-- /.option-->
-
-                                    <option value="2018">2018</option><!-- /.option-->
-
-                                    <option value="2017">2017</option><!-- /.option-->
-                                    <option value="2016">2016</option><!-- /.option-->
-
-                                </select><!-- /.select-->
-                            </div><!-- /.model-select-icon -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+                {% for i in range(10) %}
+                {% set row = list_carprice[i] %}
+                <tr>
+                    <td>{{ row.id_car}}</td>
+                    <td>{{ row.car_symboling}}</td>
+                    <td>{{ row.car_name}}</td>
+                    <td>{{ row.fuel_type }}</td>
+                    <td>{{ row.car_aspiration }}</td>
+                    <td>{{ row.door_number }}</td>
+                    <td>{{ row.car_body }}</td>
+                    <td>{{ row.drive_wheel }}</td>
+                    <td>{{ row.engine_location }}</td>
+                    <td>{{ row.wheel_base }}</td>
+                    <td>{{ row.car_length }}</td>
+                    <td>{{ row.car_width }}</td>
+                    <td>{{ row.car_height }}</td>
+                    <td>{{ row.curb_weight }}</td>
+                    <td>{{ row.engine_type }}</td>
+                    <td>{{ row.cylinder_number }}</td>
+                    <td>{{ row.engine_size }}</td>
+                    <td>{{ row.fuel_system }}</td>
+                    <td>{{ row.bore_ratio }}</td>
+                    <td>{{ row.car_stroke }}</td>
+                    <td>{{ row.compression_ratio }}</td>
+                    <td>{{ row.horse_power }}</td>
+                    <td>{{ row.peak_rpm }}</td>
+                    <td>{{ row.city_mpg }}</td>
+                    <td>{{ row.highway_mpg }}</td>
+                    <td>{{ row.price_of_car }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 
 
-<!--service start -->
-<section id="service" class="service">
-    <div class="container">
-        <div class="service-content">
-            <div class="row">
 
-            </div>
-        </div>
-    </div>
-
-</section><!--/.service-->
+</body>
 
 <!--contact start-->
 <footer id="contact" class="contact">
@@ -313,7 +265,6 @@
             <i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title=""
                data-original-title="Back to Top" aria-hidden="true"></i>
         </div>
-
     </div><!--/.scroll-Top-->
 
 </footer><!--/.contact-->
