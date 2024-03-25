@@ -97,7 +97,7 @@
 </div><!-- /.top-area-->
 <!--welcome-hero end -->
 <div class="image-query">
-    <img src="/front_end/assets/images/welcome-hero/query_img.jpg"/>
+    <img src="/assets/images/welcome-hero/query_img.jpg"/>
 </div>
 <br>
 <div class="section-header">
@@ -111,8 +111,8 @@
                 <thead>
                 <tr>
                     <th onclick="sortTable(0)">ID</th>
-                    <th onclick="sortTable(1)">Valutazione rischio</th>
                     <th onclick="sortTable(2)">Marca e modello</th>
+                    <th onclick="sortTable(1)">Valutazione rischio</th>
                     <th onclick="sortTable(3)">Tipo di carburante</th>
                     <th onclick="sortTable(4)">Aspirazione</th>
                     <th onclick="sortTable(5)">Numero porte</th>
@@ -142,11 +142,11 @@
                 <tbody id="data-body">
 
                 {% for i in range(10) %}
-                {% set row = list_carprice[i] %}
+                {% set row = carlist_price[i] %}
                 <tr>
                     <td>{{ row.id_car}}</td>
-                    <td>{{ row.car_symboling}}</td>
                     <td>{{ row.car_name}}</td>
+                    <td>{{ row.car_symboling}}</td>
                     <td>{{ row.fuel_type }}</td>
                     <td>{{ row.car_aspiration }}</td>
                     <td>{{ row.door_number }}</td>
@@ -177,7 +177,109 @@
         </div>
     </div>
 </div>
-
+<!--Ricerca Veicolo-->
+<section id="ricerca_veicolo">
+    <div class="myDiv" style="background-image: url('/assets/images/welcome-hero/wall.jpg'); align-items: center; justify-content: center">
+        <form method="POST" action="/query_page/find_query"
+              style="display: flex; flex-direction: column; align-items:center;">
+            <h1 class="project-category custom-title">Ricerca Veicolo</h1>
+            <br>
+            <div class="single-model-search" style="text-align: center;">
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car" style="width: 100px; text-align: right; margin-right: 50px">Marca
+                        e modello:</label>
+                    <input type="text" name="find-car" id="find_car" value=""
+                           placeholder="Marca e modello veicolo"/>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car_fueltype"
+                           style="width: 100px; text-align: right; margin-right: 50px">Tipo di carburante:</label>
+                    <input type="text" name="find-car-fueltype" id="find_car_fueltype" value=""
+                           placeholder="Tipo di carburante"/>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car_doornumber"
+                           style="width: 100px; text-align: right; margin-right: 50px">Numero porte:</label>
+                    <select name="find-car-doornumber" id="find_car_doornumber">
+                        <option value="">•Seleziona•</option>
+                        <option value="four">Four</option>
+                        <option value="two">Two</option>
+                    </select>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car_body"
+                           style="width: 100px; text-align: right; margin-right: 50px">Carrozzeria:</label>
+                    <input type="text" name="find-car-body" id="find_car_body" value=""
+                           placeholder="(e.g. sedan, hatchback)"/>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car_minhp"
+                           style="width: 100px; text-align: right; margin-right: 50px">Cavalli min(HP):</label>
+                    <input type="text" name="find-car-minhp" id="find_car_minhp" value=""
+                           placeholder="48 min"/>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car_maxhp"
+                           style="width: 100px; text-align: right; margin-right: 50px">Cavalli max(HP):</label>
+                    <input type="text" name="find-car-maxhp" id="find_car_maxhp" value=""
+                           placeholder="288 max"/>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car_citympg_min"
+                           style="width: 100px; text-align: right; margin-right: 50px">Consumo città minimo:</label>
+                    <input type="text" name="find-car-citympg-min" id="find_car_citympg_min" value=""
+                           placeholder="13 min.(MPG)"/>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car_citympg_max"
+                           style="width: 100px; text-align: right; margin-right: 50px">Consumo città max:</label>
+                    <input type="text" name="find-car-citympg-max" id="find_car_citympg_max" value=""
+                           placeholder="49 max.(MPG)"/>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car_highwaympg_min"
+                           style="width: 100px; text-align: right; margin-right: 50px">Consumo autostrada
+                        minimo:</label>
+                    <input type="text" name="find-car-highwaympg-min" id="find_car_highwaympg_min" value=""
+                           placeholder="16 min.(MPG)"/>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car_highwaympg_max"
+                           style="width: 100px; text-align: right; margin-right: 50px">Consumo autostrada max:</label>
+                    <input type="text" name="find-car-highwaympg-max" id="find_car_highwaympg_max" value=""
+                           placeholder="54 max. (MPG)"/>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car_price_min"
+                           style="width: 100px; text-align: right; margin-right: 50px">Prezzo min.:</label>
+                    <input type="text" name="find-car-price-min" id="find_car_price_min" value=""
+                           placeholder="min. 5.118$"/>
+                </div>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="find_car_price_max"
+                           style="width: 100px; text-align: right; margin-right: 50px">Prezzo max:</label>
+                    <input type="text" name="find-car-price-max" id="find_car_price_max" value=""
+                           placeholder="max. 45.400$"/>
+                </div>
+                <br>
+                <div style="dispplay: flex; align-items: center; justify-content: center;">
+                    <button type="submit" class="btn btn-primary">Ricerca</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
 
 
 </body>
