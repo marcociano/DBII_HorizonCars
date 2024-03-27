@@ -1,9 +1,7 @@
-from typing import Type, Any
-
-
 class CarPrice:
     # Inizializzo gli attributi dell'oggetto CarRetail recuperandoli dal database
     def __init__(self, car_price):
+        self.car_id = car_price["car_ID"]
         self.car_name = car_price["CarName"]
         self.car_symboling = car_price["symboling"]
         self.fuel_type = car_price["fueltype"]
@@ -33,6 +31,7 @@ class CarPrice:
     # Restituisco l'oggetto come se fosse un dizionario
     def dump(self):
         return {
+            "car_ID": self.car_id,
             "CarName": self.car_name,
             "symboling": self.car_symboling,
             "fueltype": self.fuel_type,
@@ -64,6 +63,7 @@ class CarPrice:
 # Controllo se i parametri dell'oggetto sono vuoti
 def checkformat(test):
     if (
+            test.car_id == "" and
             test.car_name == "" and
             test.car_symboling == "" and
             test.fuel_type == "" and test.car_aspiration == "" and

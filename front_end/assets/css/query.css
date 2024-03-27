@@ -1,93 +1,6 @@
-/*
 .myDiv {
-  border: 3px outset #312450;
-  text-align: left;
-  padding: 5px;
-}
-
-.query_button {
-  margin-top: 8px;
-}
-
-.happy {
-  size: 77;
-  margin-top: 5px;
-}
-
-.title_dataset{
-    text-align: center;
-}
-
-.table-wrapper {
-  position:relative;
-  margin: 25px;
-}
-.table-scroll {
-  height:400px;
-  overflow-x:auto;
-  overflow-y:auto;
-  margin-top:20px;
-}
-.table-wrapper table {
-  width:100%;
-}
-
-table thead tr {
-    display: block;
-    text-align: left;
-}
-table tbody {
-    display: block;
-    height: 300px;
-    overflow-x:auto;
-    overflow-y:auto;
-    }
-
-th:hover {
-cursor: pointer;
-background-color: #5e42a6;
-}
-
-table, tbody, thead, tr, th, td {
-        margin: 0;
-        padding: 0;
-        border: 0px #5e42a6;
-        outline: 0;
-        font-size: 100%;
-        vertical-align: baseline;
-        background: transparent;
-    }
-td{
-      height:25px;
-      border: 1px #5e42a6 !important;
-      font-size:15px;
-      text-align: left;
-      padding:3px !important;
-      width:150px !important;
-      line-height: 30px;
-        -webkit-column-gap: 90px;
-        -moz-column-gap: 40px;
-        column-gap: 40px;
-    }
-
-    .table-wrapper {
-    overflow-x:auto;
-    }
-
-    .table-scroll{
-        height:auto;
-        overflow-x:auto;
-        overflow-y:auto;
-        }
-
-    td {
-    text-align: left;
-} */
-
-.myDiv {
-            border: 3px outset #312450;
             text-align: left;
-            padding: 5px;
+            padding: 3px;
         }
 
         .query_button {
@@ -117,7 +30,7 @@ td{
 
         th:hover {
             cursor: pointer;
-            background-color: #5e42a6;
+            background-color: #4e4ef1 ;
         }
 
         table,
@@ -128,11 +41,12 @@ td{
         td {
             margin: 0;
             padding: 0 15px;
-            border: 0px #5e42a6;
+            border: 0px #4e4ef1;
             outline: 0;
             font-size: 97%;
             vertical-align: baseline;
             background: transparent;
+            text-align: center;
         }
 
         th,td {
@@ -142,9 +56,9 @@ td{
         td {
             overflow-wrap:break-word;
             height: 25px;
-            border: 1px #5e42a6 !important;
+            border: 1px #4e4ef1 !important;
             font-size: 15px;
-            text-align: left;
+            text-align: center;
             padding: 3px !important;
             width: 150px !important;
             line-height: 30px;
@@ -153,8 +67,7 @@ td{
             -moz-column-gap: 40px;
             /* Firefox */
             column-gap: 40px;
-
-            text-align: left;
+            text-align: center;
         }
 
 
