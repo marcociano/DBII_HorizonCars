@@ -1,5 +1,5 @@
 class CarPrice:
-    # Inizializzo gli attributi dell'oggetto CarRetail recuperandoli dal database
+    # Inizializzo gli attributi dell'oggetto CarPrice recuperandoli dal database
     def __init__(self, car_price):
         self.car_id = car_price["car_ID"]
         self.car_name = car_price["CarName"]
@@ -20,7 +20,7 @@ class CarPrice:
         self.engine_size = car_price["enginesize"]
         self.fuel_system = car_price["fuelsystem"]
         self.bore_ratio = car_price["boreratio"]
-        self.car_stroke = car_price["stroke"]
+        self.car_stroke = car_price.get("stroke", 8)
         self.compression_ratio = car_price["compressionratio"]
         self.horse_power = car_price["horsepower"]
         self.peak_rpm = car_price["peakrpm"]

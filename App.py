@@ -1,4 +1,6 @@
+import numpy as np
 from flask import Flask, render_template, request
+from pymongo import MongoClient
 import Queries as Query
 import CarPrice
 
@@ -58,6 +60,7 @@ def find_query():
         car_price_max = request.form['find-car-price-max']
 
         # Se la marca ed il modello della macchina rappresentano una stringa vuota, viene assegnato un dizionario {"$ne": None}
+
         if car_name == "":
             car_name = {"$ne": None}
         if fuel_type == "":
@@ -127,9 +130,34 @@ def find_query():
             return render_template('query_page.html', response="Nessun veicolo trovato.", carlist_price=get_result())
     return render_template("query_page.html", response="Errore rilevato", carlist_price=get_result())
 
+
+def get_next_id():
+    client = MongoClient('mongodb://localhost:27017')
+    db = client.CarPrice
+    collection = db.CarPrice
+    # Cerca l'ultimo record basandosi sull'ID più alto
+    last_record = collection.find_one(sort=[("car_ID", -1)])  # Assicurati che "car_ID" sia il campo giusto
+
+    if last_record is not None:
+        # Incrementa l'ID più alto di 1
+        return last_record['car_ID'] + 1
+    else:
+        # Se non ci sono record, inizia da 1
+        return 1
+
+
+def convert_numpy_int_to_int(value):
+    if isinstance(value, np.int64):
+        return int(value)
+    return value
+
+
 # Fine filtri ricerca
-@app.route('/query_page/insert_query', methods=['POST', 'GET'])
+@app.route('/query_page/insert_car', methods=['POST', 'GET'])
 def insert_car():
+    csv_path = 'CarPrice_formatted.csv'
+    new_id = get_next_id(csv_path)
+
     car_name = request.form['insert-car']
     car_symboling = request.form['insert-car-symboling']
     fuel_type = request.form['insert-car-fueltype']
@@ -156,10 +184,8 @@ def insert_car():
     highway_mpg = request.form['insert-car-highwaympg']
     price_of_car = request.form['insert-car-price']
 
-
-
     car = {
-        "car_ID": new_id,
+        "car_ID": convert_numpy_int_to_int(new_id),
         "CarName": car_name,
         "symboling": car_symboling,
         "fueltype": fuel_type,
@@ -187,8 +213,8 @@ def insert_car():
         "price": price_of_car
     }
     car_price = CarPrice.CarPrice(car)
-    if CarPrice.checkFormato(car_price):
-        Query.insert_car(car_price)
+    if CarPrice.checkformat(car_price):
+        Query.insert_new_car(car_price)
         return render_template('query_page.html', response='Veicolo inserito correttamente', carlist_price=full_table())
     else:
         return render_template('query_page.html', response='Valori mancanti', carlist_price=get_result())

@@ -18,13 +18,14 @@ def search_car(car_name, fuel_type, door_number, car_body,
     return query
 
 
-def insert_car(new_car):
+def insert_new_car(new_car):
     col = Cp.connection_pool()
     col.insert_one({
+        "car_ID": new_car.car_id,
         "CarName": new_car.car_name,
         "symboling": new_car.car_symboling,
         "fueltype": new_car.fuel_type,
-        "aspiration": new_car.aspiration,
+        "aspiration": new_car.car_aspiration,
         "doornumber": new_car.door_number,
         "carbody": new_car.car_body,
         "drivewheel": new_car.drive_wheel,
@@ -39,7 +40,7 @@ def insert_car(new_car):
         "enginesize": new_car.engine_size,
         "fuelsystem": new_car.fuel_system,
         "boreratio": new_car.bore_ratio,
-        "carstroke": new_car.car_stroke,
+        "stroke": new_car.car_stroke,
         "compressionratio": new_car.compression_ratio,
         "horsepower": new_car.horse_power,
         "peakrpm": new_car.peak_rpm,
@@ -57,7 +58,7 @@ def update_car(car, modified):
             "CarName": modified.car_name,
             "symboling": modified.car_symboling,
             "fueltype": modified.fuel_type,
-            "aspiration": modified.aspiration,
+            "aspiration": modified.car_aspiration,
             "doornumber": modified.door_number,
             "carbody": modified.car_body,
             "drivewheel": modified.drive_wheel,
@@ -72,7 +73,7 @@ def update_car(car, modified):
             "enginesize": modified.engine_size,
             "fuelsystem": modified.fuel_system,
             "boreratio": modified.bore_ratio,
-            "carstroke": modified.car_stroke,
+            "stroke": modified.car_stroke,
             "compressionratio": modified.compression_ratio,
             "horsepower": modified.horse_power,
             "peakrpm": modified.peak_rpm,

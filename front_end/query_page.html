@@ -72,7 +72,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index.html">Car•Prices<span></span></a>
+                    <a class="navbar-brand" href="index">Car•Prices<span></span></a>
 
                 </div><!--/.navbar-header-->
                 <!-- End Header Navigation -->
@@ -80,7 +80,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="scroll"><a href="index.html">home</a></li>
+                        <li class="scroll"><a href="index">home</a></li>
                         <li class="scroll"><a href="#brand">brands</a></li>
                         <li class="scroll"><a href="#contact">contact</a></li>
                     </ul><!--/.nav -->
@@ -172,11 +172,18 @@
         </div>
     </div>
 </div>
+
 <!--Ricerca Veicolo-->
+<div id="contact" class="contact" style="margin-bottom: 15px">
+    <br>
+    <h1 style="text-align: center; color: #ffffff; font-size: 30px">Ricerca Veicolo</h1>
+    <br>
+</div>
+
 <section id="ricerca_veicolo"
-         style="background-image: url('/assets/images/welcome-hero/wall.jpg'); background-repeat: no-repeat; align-items: center; justify-content: center; display: flex; flex-direction: column; align-items: center;">
+         style="align-items: center; justify-content: center; display: flex; flex-direction: column; align-items: center;">
     <form method="POST" action="/query_page/find_query" style="width: 50%; margin: auto;">
-        <h1 style="text-align: center; color: #ffffff; font-size: 30px">Ricerca Veicolo</h1>
+
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="find_car">Marca e modello:</label>
             <input type="text" name="find-car" id="find_car" class="form-control" placeholder="es. Audi 100ls, Bmw">
@@ -203,44 +210,44 @@
             <label for="find_car_minhp">Cavalli
                 min(HP):</label>
             <input type="text" name="find-car-minhp" id="find_car_minhp" value=""
-                   placeholder="48 min" min="48" max="288"  class="form-control"/>
+                   placeholder="48 min" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="find_car_maxhp">Cavalli max(HP):</label>
-            <input type="number" name="find-car-maxhp" id="find_car_maxhp" value=""
-                   placeholder="288 max" min="48" max="288" class="form-control"/>
+            <input type="text" name="find-car-maxhp" id="find_car_maxhp" value=""
+                   placeholder="288 max" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="find_car_citympg_min">Consumo città minimo:</label>
-            <input type="number" name="find-car-citympg-min" id="find_car_citympg_min" value=""
+            <input type="text" name="find-car-citympg-min" id="find_car_citympg_min" value=""
                    placeholder="13 min.(MPG)" min="13" max="49" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="find_car_citympg_max">Consumo città max:</label>
-            <input type="number" name="find-car-citympg-max" id="find_car_citympg_max" value=""
-                   placeholder="49 max.(MPG)" min="13" max="49" class="form-control"/>
+            <input type="text" name="find-car-citympg-max" id="find_car_citympg_max" value=""
+                   placeholder="49 max.(MPG)" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="find_car_highwaympg_min">Consumo autostrada minimo:</label>
-            <input type="number" name="find-car-highwaympg-min" id="find_car_highwaympg_min" value=""
-                   placeholder="16 min.(MPG)" min="16" max="54" class="form-control"/>
+            <input type="text" name="find-car-highwaympg-min" id="find_car_highwaympg_min" value=""
+                   placeholder="16 min.(MPG)" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="find_car_highwaympg_max">Consumo autostrada max:</label>
-            <input type="number" name="find-car-highwaympg-max" id="find_car_highwaympg_max" value=""
-                   placeholder="54 max. (MPG)" min="16" max="54" class="form-control"/>
+            <input type="text" name="find-car-highwaympg-max" id="find_car_highwaympg_max" value=""
+                   placeholder="54 max. (MPG)" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="find_car_price_min">Prezzo min.:</label>
             <input type="text" name="find-car-price-min" id="find_car_price_min" value=""
-                   placeholder="5118$ min" min="5118" max="45400" class="form-control"/>
+                   placeholder="5118$ min" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="find_car_price_max">Prezzo max:</label>
-            <input type="number" name="find-car-price-max" id="find_car_price_max" value=""
-                   placeholder="45400$ max" min="5118" max="45400" class="form-control"/>
+            <input type="text" name="find-car-price-max" id="find_car_price_max" value=""
+                   placeholder="45400$ max" class="form-control"/>
         </div>
-        <div style="text-align: center;">
+        <div style="text-align: center; margin-top: 20px; margin-bottom: 20px">
             <button id="submit_button" type="submit" class="btn btn-primary">Ricerca</button>
         </div>
         </div>
@@ -249,10 +256,16 @@
 </section>
 
 <!--Inserimento nuovo veicolo-->
+<div id="contact" class="contact">
+    <br>
+    <h1 style="text-align: center; color: #ffffff; font-size: 30px">Inserimento dati veicolo</h1>
+    <br>
+</div>
+
 <section id="Inserisci_veicolo"
-         style="background-image: url('/assets/images/welcome-hero/wall.jpg'); background-repeat: no-repeat; align-items: center; justify-content: center; display: flex; flex-direction: column; align-items: center;">
-    <form method="POST" action="/query_page/insert_query" style="width: 50%; margin: auto;">
-        <h1 style="text-align: center; color: #ffffff; font-size: 30px">Inserimento dati veicolo</h1>
+         style="align-items: center; justify-content: center; display: flex; flex-direction: column; align-items: center;">
+    <form method="POST" action="/query_page/insert_car" style="width: 50%; margin: auto;">
+        <h1 style="text-align: center; color: #0000; font-size: 30px">Inserimento dati veicolo</h1>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car">Marca e modello:</label>
             <input type="text" name="insert-car" id="insert_car" class="form-control"
@@ -260,8 +273,8 @@
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_symboling">Valutazione rischio:</label>
-            <input type="number" name="insert-car-symboling" id="insert_car_symboling" value=""
-                   placeholder="From -3 (secure) to 3 (not secure)" min="-3" max="3" class="form-control"/>
+            <input type="text" name="insert-car-symboling" id="insert_car_symboling" value=""
+                   placeholder="From -3 (secure) to 3 (not secure)" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_fueltype">Tipo di carburante:</label>
@@ -301,30 +314,30 @@
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_wheelbase">Interasse:</label>
-            <input type="number" name="insert-car-wheelbase" id="insert_car_wheelbase"
-                   value="" placeholder="Lunghezza interasse" min="0" class="form-control"/>
+            <input type="text" name="insert-car-wheelbase" id="insert_car_wheelbase"
+                   value="" placeholder="Lunghezza interasse" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_length">Lunghezza veicolo:</label>
-            <input type="number" name="insert-car-length" id="insert_car_length" value=""
+            <input type="text" name="insert-car-length" id="insert_car_length" value=""
                    placeholder="Lunghezza veicolo" class="form-control"/>
         </div>
-         <div class="form-group" style="margin-bottom: 15px;">
+        <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_width">Larghezza veicolo:</label>
-            <input type="number" name="insert-car-width" id="insert_car_width" value=""
+            <input type="text" name="insert-car-width" id="insert_car_width" value=""
                    placeholder="Larghezza veicolo" class="form-control"/>
         </div>
-         <div class="form-group" style="margin-bottom: 15px;">
+        <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_height">Altezza veicolo:</label>
-            <input type="number" name="insert-car-height" id="insert_car_height" value=""
+            <input type="text" name="insert-car-height" id="insert_car_height" value=""
                    placeholder="Altezza veicolo" class="form-control"/>
         </div>
-         <div class="form-group" style="margin-bottom: 15px;">
+        <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_weight">Peso veicolo:</label>
-            <input type="number" name="insert-car-weight" id="insert_car_weight" value=""
+            <input type="text" name="insert-car-weight" id="insert_car_weight" value=""
                    placeholder="Peso veicolo" class="form-control"/>
         </div>
-         <div class="form-group" style="margin-bottom: 15px;">
+        <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_enginetype">Tipo motore:</label>
             <input type="text" name="insert-car-enginetype" id="insert_car_enginetype" value=""
                    placeholder="es. ohc, ohcf" class="form-control"/>
@@ -334,9 +347,9 @@
             <input type="text" name="insert-car-cylindernumber" id="insert_car_cylindernumber" value=""
                    placeholder="es. four, six" class="form-control"/>
         </div>
-         <div class="form-group" style="margin-bottom: 15px;">
+        <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_enginesize">Grandezza motore:</label>
-            <input type="number" name="insert-car-enginesize" min="0" id="insert_car_enginesize" value=""
+            <input type="text" name="insert-car-enginesize" id="insert_car_enginesize" value=""
                    placeholder="Grandezza motore" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
@@ -346,47 +359,73 @@
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_boreratio">Diametro dei cilindri:</label>
-            <input type="number" name="insert-car-boreratio" min="2.54" max="3.94" step="0.1" id="insert_car_boreratio"
+            <input type="text" name="insert-car-boreratio" id="insert_car_boreratio"
                    value="" placeholder="Diametro cilindri" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_stroke">Volume camera scoppio:</label>
-            <input type="number" name="insert-car-stroke" min="2.07" max="4.17" step="0.1" id="insert_car_stroke"
+            <input type="text" name="insert-car-stroke" id="insert_car_stroke"
                    value="" placeholder="Volume camera scoppio" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_compressionratio">Rapporto di compressione:</label>
-            <input type="number" name="insert-car-compressionratio" min="7" max="23" step="0.1"
+            <input type="text" name="insert-car-compressionratio"
                    id="insert_car_compressionratio" value="" placeholder="Rapporto di compressione"
                    class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_hp">Cavalli (HP):</label>
-            <input type="number" name="insert-car-hp" id="insert_car_hp" value=""
+            <input type="text" name="insert-car-hp" id="insert_car_hp" value=""
                    placeholder="Cavalli (HP)" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_peakrpm">Giri/minuto di picco:</label>
-            <input type="number" name="insert-car-peakrpm" id="insert_car_peakrpm" value=""
+            <input type="text" name="insert-car-peakrpm" id="insert_car_peakrpm" value=""
                    placeholder="rpm" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_citympg">Consumo medio città:</label>
-            <input type="number" name="insert-car-citympg" id="insert_car_citympg" value=""
+            <input type="text" name="insert-car-citympg" id="insert_car_citympg" value=""
                    placeholder="Consumo medio città" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_highwaympg">Consumo medio autostrada:</label>
-            <input type="number" name="insert-car-highwaympg" id="insert_car_highwaympg" value=""
+            <input type="text" name="insert-car-highwaympg" id="insert_car_highwaympg" value=""
                    placeholder="Consumo medio autostrada" class="form-control"/>
         </div>
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="insert_car_price">Prezzo:</label>
-            <input type="number" name="insert-car-price" id="insert_car_price" value=""
+            <input type="text" name="insert-car-price" id="insert_car_price" value=""
                    placeholder="Prezzo ($)" class="form-control"/>
         </div>
-        <div style="text-align: center;">
+        <div style="text-align: center; margin-top: 20px; margin-bottom: 20px">
             <button id="submit_button" type="submit" class="btn btn-primary">Inserici</button>
+        </div>
+    </form>
+    </div>
+</section>
+<!-- Aggiornamento prezzo veicolo -->
+<div id="contact" class="contact">
+    <br>
+    <h1 style="text-align: center; color: #ffffff; font-size: 30px">Aggiornamento prezzo veicolo</h1>
+    <br>
+</div>
+<section id="aggiorna_veicolo"
+         style="align-items: center; justify-content: center; display: flex; flex-direction: column; align-items: center;">
+    <form method="POST" action="/query_page/update_car" style="width: 50%; margin: auto;">
+        <p style="text-align: center;">Inserisci qui di seguito l'id del veicolo per modificarne il prezzo</p>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="insert_id">ID veicolo:</label>
+            <input type="number" name="insert-id" id="insert_id" class="form-control" placeholder="">
+        </div>
+        <hr style="height: 3px; background-color: #2a2d54; border-radius: 7px 7px 7px 7px;" >
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="update_car_price">Nuovo prezzo:</label>
+            <input type="text" name="update-car-price" id="update_car_price" value=""
+                   placeholder="" class="form-control"/>
+        </div>
+        <div style="text-align: center; margin-top: 20px; margin-bottom: 20px">
+            <button id="submit_button" type="submit" class="btn btn-primary">Aggiorna</button>
         </div>
         </div>
     </form>
