@@ -153,6 +153,9 @@ def convert_numpy_int_to_int(value):
 
 
 # Fine filtri ricerca
+
+
+# Inserimento nuovo veicolo
 @app.route('/query_page/insert_car', methods=['POST', 'GET'])
 def insert_car():
     csv_path = 'CarPrice_formatted.csv'
@@ -218,6 +221,34 @@ def insert_car():
         return render_template('query_page.html', response='Veicolo inserito correttamente', carlist_price=full_table())
     else:
         return render_template('query_page.html', response='Valori mancanti', carlist_price=get_result())
+
+
+@app.route('/query_page/update_car', methods=['POST', 'GET'])
+def update_car():
+    car_id = request.form['update-by-id']
+    new_price = request.form['update-car-price']
+
+    if not car_id or not new_price:
+        return render_template('query_page.html', response='Errore: tutti i campi sono richiesti',
+                               carlist_price=get_result())
+    update_count = Query.update_car(car_id, new_price)
+
+    if update_count > 0:
+        return render_template('query_page.html', response='Prezzo aggiornato con successo', carlist_price=full_table())
+    else:
+        return render_template('query_page.html', response="Errore: aggiornamento prezzo non riuscito",
+                               carlist_price=get_result())
+
+
+@app.route('/query_page/delete_car', methods=['POST', 'GET'])
+def delete_car():
+    car_id = request.form.get('delete-by-id')
+
+    if not car_id:
+        return render_template('query_page.html', response='Errore: non è stato inserito alcun ID.',
+                               carlist_price=get_result())
+    response = Query.delete_car(car_id)
+    return render_template('query_page.html', response=response, carlist_price=full_table())
 
 
 if __name__ == "__main__":

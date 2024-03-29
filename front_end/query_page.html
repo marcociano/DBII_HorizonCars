@@ -80,8 +80,11 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="scroll"><a href="index">home</a></li>
-                        <li class="scroll"><a href="#brand">brands</a></li>
+                        <li class="scroll"><a href="/index">Home</a></li>
+                        <li class="scroll"><a href="#ricerca_veicolo">Ricerca</a></li>
+                        <li class="scroll"><a href="#inserimento_veicolo">Inserimento</a></li>
+                        <li class="scroll"><a href="#aggiornamento_veicolo">Aggiornamento</a></li>
+                        <li class="scroll"><a href="#cancellazione_veicolo">Cancellazione</a></li>
                         <li class="scroll"><a href="#contact">contact</a></li>
                     </ul><!--/.nav -->
                 </div><!-- /.navbar-collapse -->
@@ -174,13 +177,13 @@
 </div>
 
 <!--Ricerca Veicolo-->
-<div id="contact" class="contact" style="margin-bottom: 15px">
+<div id="ricerca_veicolo" class="contact" style="margin-bottom: 15px">
     <br>
     <h1 style="text-align: center; color: #ffffff; font-size: 30px">Ricerca Veicolo</h1>
     <br>
 </div>
 
-<section id="ricerca_veicolo"
+<section
          style="align-items: center; justify-content: center; display: flex; flex-direction: column; align-items: center;">
     <form method="POST" action="/query_page/find_query" style="width: 50%; margin: auto;">
 
@@ -256,13 +259,13 @@
 </section>
 
 <!--Inserimento nuovo veicolo-->
-<div id="contact" class="contact">
+<div id="inserimento_veicolo" class="contact">
     <br>
     <h1 style="text-align: center; color: #ffffff; font-size: 30px">Inserimento dati veicolo</h1>
     <br>
 </div>
 
-<section id="Inserisci_veicolo"
+<section
          style="align-items: center; justify-content: center; display: flex; flex-direction: column; align-items: center;">
     <form method="POST" action="/query_page/insert_car" style="width: 50%; margin: auto;">
         <h1 style="text-align: center; color: #0000; font-size: 30px">Inserimento dati veicolo</h1>
@@ -405,18 +408,20 @@
     </div>
 </section>
 <!-- Aggiornamento prezzo veicolo -->
-<div id="contact" class="contact">
+<div id="aggiornamento_veicolo" class="contact">
     <br>
     <h1 style="text-align: center; color: #ffffff; font-size: 30px">Aggiornamento prezzo veicolo</h1>
     <br>
 </div>
-<section id="aggiorna_veicolo"
+<section
          style="align-items: center; justify-content: center; display: flex; flex-direction: column; align-items: center;">
     <form method="POST" action="/query_page/update_car" style="width: 50%; margin: auto;">
-        <p style="text-align: center;">Inserisci qui di seguito l'id del veicolo per modificarne il prezzo</p>
+        <p style="text-align: center; margin-top: 10px; margin-bottom: 10px">Inserisci qui di seguito l'ID del veicolo
+            per modificarne il
+            prezzo</p>
         <div class="form-group" style="margin-bottom: 15px;">
-            <label for="insert_id">ID veicolo:</label>
-            <input type="number" name="insert-id" id="insert_id" class="form-control" placeholder="">
+            <label for="update_by_id">ID veicolo:</label>
+            <input type="number" name="update-by-id" id="update_by_id" class="form-control" placeholder="">
         </div>
         <hr style="height: 3px; background-color: #2a2d54; border-radius: 7px 7px 7px 7px;" >
         <div class="form-group" style="margin-bottom: 15px;">
@@ -432,6 +437,31 @@
     </div>
 </section>
 
+<!-- Cancellazione veicolo -->
+<div id="cancellazione_veicolo" class="contact">
+    <br>
+    <h1 style="text-align: center; color: #ffffff; font-size: 30px">Cancellazione dati veicolo</h1>
+    <br>
+</div>
+<section
+         style="align-items: center; justify-content: center; display: flex; flex-direction: column; align-items: center;">
+    <form method="POST" action="/query_page/delete_car" style="width: 50%; margin: auto;">
+        <p style="text-align: center; margin-top: 10px; margin-bottom: 10px">Inserisci qui di seguito l'ID del veicolo
+            che
+            desideri
+            cancellare dalla base di dati</p>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="delete_by_id">ID veicolo:</label>
+            <input type="number" name="delete-by-id" id="delete_by_id" class="form-control" placeholder="">
+        </div>
+        <div style="text-align: center; margin-top: 20px; margin-bottom: 20px">
+            <button id="submit_button" type="submit" class="btn btn-primary">Esegui <span>la</span>
+                <span> cancellazione</span></button>
+        </div>
+        </div>
+    </form>
+    </div>
+</section>
 </body>
 
 <!--contact start-->
@@ -550,7 +580,5 @@
             return true;
         }
 </script>
-
 </body>
-
 </html>

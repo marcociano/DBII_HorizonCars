@@ -50,50 +50,40 @@ def insert_new_car(new_car):
     })
 
 
-def update_car(car, modified):
+def update_car(car_id, new_price):
     col = Cp.connection_pool()
-    query = {"CarName": car}
+    query = {"car_ID": int(car_id)}
     new_values = {
         "$set": {
-            "CarName": modified.car_name,
-            "symboling": modified.car_symboling,
-            "fueltype": modified.fuel_type,
-            "aspiration": modified.car_aspiration,
-            "doornumber": modified.door_number,
-            "carbody": modified.car_body,
-            "drivewheel": modified.drive_wheel,
-            "enginelocation": modified.engine_location,
-            "wheelbase": modified.wheel_base,
-            "carlength": modified.car_length,
-            "carwidth": modified.car_width,
-            "carheight": modified.car_height,
-            "curbweight": modified.curb_weight,
-            "enginetype": modified.engine_type,
-            "cylindernumber": modified.cylinder_number,
-            "enginesize": modified.engine_size,
-            "fuelsystem": modified.fuel_system,
-            "boreratio": modified.bore_ratio,
-            "stroke": modified.car_stroke,
-            "compressionratio": modified.compression_ratio,
-            "horsepower": modified.horse_power,
-            "peakrpm": modified.peak_rpm,
-            "citympg": modified.city_mpg,
-            "highwaympg": modified.highway_mpg,
-            "price": modified.price_of_car
+            "price": new_price
         }
     }
     print(new_values)
-    col.update_one(query, new_values)
+    result = col.update_one(query, new_values)
+    return result.modified_count
 
 
-def delete_car(car_id, car_name):
+def delete_car(car_id):
     col = Cp.connection_pool()
-    col.delete_many({"car_ID": car_id, "CarName": car_name})
+    car_id = int(car_id)
+
+    result = col.delete_one({"car_ID": car_id})
+
+    if result.deleted_count > 0:
+        return "Veicolo con ID {car_id} cancellato con successo."
+    else:
+        return "Nessun veicolo trovato con l'ID specificato."
 
 
 def car_alphabetical_sorting():
     col = Cp.connection_pool()
     query = col.find().sort("CarName", 1)
+    return query
+
+
+def find_by_id(car_id):
+    col = Cp.connection_pool()
+    query = col({"car_ID": car_id})
     return query
 
 

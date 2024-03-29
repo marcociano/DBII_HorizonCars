@@ -24,8 +24,12 @@ def load_and_format_csv(file_path, output_path):
         # Trasformazione del nome dell'auto
         df['CarName'] = df['CarName'].apply(capitalize_first_letter_model)
 
+        # Converto la colonna dei prezzi per rimuovere gli zeri non significativi
+        if 'price' in df.columns:
+            df['price'] = df['price'].apply(pd.to_numeric, errors='coerce')
+
         # Salvataggio del DataFrame modificato in un nuovo file CSV, usando la virgola come separatore
-        df.to_csv(output_path, index=False, sep=',')
+        df.to_csv(output_path, index=False, sep=',', float_format='%g')
 
         return "File salvato con successo: " + output_path
     except Exception as e:
