@@ -185,7 +185,7 @@
             // ------------------------------------------------------------------------------ //
             $("nav.navbar.bootsnav .attr-nav").each(function(){  
                 $("li.search > a", this).on("click", function(e){
-                    e.preventDefault();
+                    //e.preventDefault();
                     $(".top-search").slideToggle();
                 });
             });
@@ -198,13 +198,13 @@
             // ------------------------------------------------------------------------------ //
             $("nav.navbar.bootsnav .attr-nav").each(function(){  
                 $("li.side-menu > a", this).on("click", function(e){
-                    e.preventDefault();
+                    //e.preventDefault();
                     $("nav.navbar.bootsnav > .side").toggleClass("on");
                     $("body").toggleClass("on-side");
                 });
             });
             $(".side .close-side").on("click", function(e){
-                e.preventDefault();
+                //e.preventDefault();
                 $("nav.navbar.bootsnav > .side").removeClass("on");
                 $("body").removeClass("on-side");
             });  
@@ -455,7 +455,7 @@
                     var getId = $(this).data("target");
                     $(this).off("click");
                     $(this).on("click", function(e){
-                        e.preventDefault();
+                        //e.preventDefault();
                         $(getId).removeClass(getOut);
                         $(getId).addClass("in");
                         $(getId).addClass(getIn);
@@ -463,7 +463,7 @@
                     });
                     
                     $("li.close-full-menu").on("click", function(e){
-                        e.preventDefault();
+                        //e.preventDefault();
                         $(getId).addClass(getOut);
                         setTimeout(function(){
                             $(getId).removeClass("in");
@@ -515,7 +515,7 @@
                 
                 // Animation Scrollspy
                 $('.scroll').on('click', function(event) {
-                    event.preventDefault();
+                    //event.preventDefault();
 
                     // Active link
                     $('.scroll').removeClass("active");
