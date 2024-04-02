@@ -1,5 +1,5 @@
 class CarPrice:
-    # Inizializzo gli attributi dell'oggetto CarPrice recuperandoli dal database
+    # Inizializzo gli attributi dell'oggetto Horizon_Cars recuperandoli dal database
     def __init__(self, car_price):
         self.car_id = car_price["car_ID"]
         self.car_name = car_price["CarName"]
