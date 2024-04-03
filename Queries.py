@@ -143,19 +143,19 @@ def find_by_carlength(length):
 
 def find_by_carwidth(width):
     col = Cp.connection_pool()
-    query = col({"carlength": width})
+    query = col({"carwidth": width})
     return query
 
 
 def find_by_carheight(height):
     col = Cp.connection_pool()
-    query = col({"carlength": height})
+    query = col({"carheight": height})
     return query
 
 
 def find_by_curbweight(curb):
     col = Cp.connection_pool()
-    query = col({"carlength": curb})
+    query = col({"curbweight": curb})
     return query
 
 
