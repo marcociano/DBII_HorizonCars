@@ -127,7 +127,7 @@ def find_query():
     return render_template("query_page.html", response="Errore rilevato", carlist_price=get_result())
 
 
-def get_next_id():
+def get_next_id(csv_path):
     client = MongoClient('mongodb://localhost:27017')
     db = client.CarPrice
     collection = db.CarPrice
@@ -140,6 +140,7 @@ def get_next_id():
     else:
         # Se non ci sono record, inizia da 1
         return 1
+    pass
 
 
 def convert_numpy_int_to_int(value):
