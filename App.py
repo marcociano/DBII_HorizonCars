@@ -8,6 +8,7 @@ app = Flask(__name__, template_folder="front_end", static_folder="front_end/asse
 
 table = None
 
+
 def get_result():
     return table
 
