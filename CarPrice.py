@@ -28,7 +28,7 @@ class CarPrice:
         self.highway_mpg = car_price["highwaympg"]
         self.price_of_car = car_price["price"]
 
-    # Restituisco l'oggetto come se fosse un dizionario
+    # Restituisco l'oggetto come dizionario
     def dump(self):
         return {
             "car_ID": self.car_id,
